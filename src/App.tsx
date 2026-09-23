@@ -24,6 +24,8 @@ import WorkoutsTab from './components/WorkoutsTab';
 import MediaTab from './components/MediaTab';
 import BooksTab from './components/BooksTab';
 import HabitsTab from './components/HabitsTab';
+import AnalyticsTab from './components/AnalyticsTab';
+import DailyLogTab from './components/DailyLogTab';
 
 import { 
   LayoutDashboard, 
@@ -37,7 +39,9 @@ import {
   CheckCircle2, 
   ShieldAlert,
   Database,
-  CheckSquare
+  CheckSquare,
+  TrendingUp,
+  ClipboardEdit
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -281,6 +285,8 @@ export default function App() {
 
   const navItems = [
     { id: 'overview', label: 'Overview', icon: <LayoutDashboard className="h-4 w-4" /> },
+    { id: 'daily-log', label: 'Daily Form', icon: <ClipboardEdit className="h-4 w-4" /> },
+    { id: 'analytics', label: 'Analytics', icon: <TrendingUp className="h-4 w-4" /> },
     { id: 'diary', label: 'Journal', icon: <Smile className="h-4 w-4" /> },
     { id: 'workouts', label: 'Workouts', icon: <Dumbbell className="h-4 w-4" /> },
     { id: 'media', label: 'Movies & TV', icon: <Film className="h-4 w-4" /> },
@@ -464,6 +470,21 @@ export default function App() {
                     onQuickLogDiary={handleQuickLogDiary}
                   />
                 )}
+                {activeTab === 'daily-log' && (
+                  <DailyLogTab
+                    data={data}
+                    onAddHabit={handleAddHabit}
+                    onUpdateHabit={handleUpdateHabit}
+                    onAddDiary={handleAddDiary}
+                    onUpdateDiary={handleUpdateDiary}
+                    onAddWorkout={handleAddWorkout}
+                    onUpdateWorkout={handleUpdateWorkout}
+                    onAddMedia={handleAddMedia}
+                    onAddBook={handleAddBook}
+                    onUpdateBook={handleUpdateBook}
+                    onNavigateToTab={setActiveTab}
+                  />
+                )}
                 {activeTab === 'diary' && (
                   <DiaryTab
                     entries={data.diary}
@@ -504,6 +525,12 @@ export default function App() {
                     onAddHabit={handleAddHabit}
                     onUpdateHabit={handleUpdateHabit}
                     onDeleteHabit={handleDeleteHabit}
+                  />
+                )}
+                {activeTab === 'analytics' && (
+                  <AnalyticsTab
+                    data={data}
+                    onNavigateToTab={setActiveTab}
                   />
                 )}
               </motion.div>

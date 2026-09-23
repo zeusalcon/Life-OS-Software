@@ -13,7 +13,8 @@ import {
   Sparkles, 
   ChevronRight,
   BookMarked,
-  CheckSquare
+  CheckSquare,
+  ClipboardEdit
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { getMountainDateString } from '../lib/dateUtils';
@@ -160,6 +161,18 @@ export default function Overview({ data, onNavigateToTab, onQuickLogDiary }: Ove
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
+          <button
+            onClick={() => onNavigateToTab('daily-log')}
+            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 bg-brand-sage hover:bg-brand-dark text-white rounded-xl shadow-md shadow-brand-sage/10 transition cursor-pointer"
+          >
+            <ClipboardEdit className="h-4 w-4" /> Daily Form
+          </button>
+          <button
+            onClick={() => onNavigateToTab('analytics')}
+            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 bg-brand-cream hover:bg-brand-sand border border-brand-border rounded-xl text-brand-sage transition cursor-pointer"
+          >
+            <TrendingUp className="h-4 w-4" /> View Analytics
+          </button>
           <button
             onClick={() => onNavigateToTab('diary')}
             className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 bg-brand-sage hover:bg-brand-dark text-white rounded-xl shadow-md shadow-brand-sage/10 transition cursor-pointer"
