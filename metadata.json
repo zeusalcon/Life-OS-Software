@@ -1,0 +1,6 @@
+{
+  "name": "Personal Life OS",
+  "description": "A personal management system to track workouts, diaries, movies, and books using Google Sheets as a backend database.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
